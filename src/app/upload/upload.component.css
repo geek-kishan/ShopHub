@@ -1,0 +1,59 @@
+form {
+    width: 25%;
+    margin: 4cm auto;
+    background-color: aliceblue;
+    border: 2px solid transparent;
+    padding: 1cm;
+    box-shadow: 2px 2px 6px -1px #b6a3a3;
+    font-size: 20px;
+}
+.form-content {
+    width: 100%;
+}
+h1{
+    font-weight: normal;
+    text-align: center;
+}
+mat-placeholder, mat-label, mat-option {
+    font-family: 'Noto Serif','serif';
+}
+mat-error {
+    color: blueviolet;
+    font-size: 18px;
+}
+button {
+    font-family: 'Noto serif','serif';
+    color: red;
+    border: 2px solid red;
+    background-color: white;
+    padding: 3px 12px;
+    font-size: 25px;
+    display: block;
+    margin: auto;
+    margin-top: 1cm;
+}
+input {
+    font-family: Noto serif, serif;
+}
+::ng-deep .ng-star-inserted {
+    height: 25px;
+}
+mat-select {
+    font-family: Noto serif;
+}
+input[type="file"] {
+    position: fixed;
+    right: 100%;
+    bottom: 100%;
+}
+.custom-file-upload {
+    border: 2px solid black;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    width: 50%;
+    margin: 15px auto; 
+    text-align: center;
+    display: block;
+}

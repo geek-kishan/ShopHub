@@ -1,0 +1,31 @@
+<app-navigation></app-navigation>
+<div class="profile-container">
+<table>
+    <tr>
+        <th colspan="2">My Profile</th>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td class="info name">{{profile.name}}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td class="info" #email>{{profile.email}}</td>
+    </tr>    
+    <tr>
+        <td>Contact</td>
+        <td class="info">{{profile.contact}}</td>
+    </tr>
+    <tr>
+        <td>Company</td>
+        <td class="info">{{profile.company}}</td>
+    </tr>   
+    <tr>
+        <td colspan="2">
+        <button mat-flat-button class="delete-button" (click)="deleteUser(email.textContent)">
+            Delete Profile
+        </button>    
+        </td>
+    </tr>
+</table>
+</div>

@@ -1,0 +1,26 @@
+<app-site-heading></app-site-heading>
+<app-navigation></app-navigation>
+<div class="outer-div">
+        <div class="login-form-container">
+            <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <h1>Login</h1>
+                <p *ngIf="submitted && isWrongCredentials" class="error-message">Wrong Credentials!</p>
+                <mat-form-field class="form-content">
+                    <input matInput type="text" formControlName="email">
+                    <mat-placeholder class="placeholder">Enter your Email</mat-placeholder>
+                </mat-form-field>
+                <div *ngIf="submitted && this.loginForm.controls.email.errors" class="error-msg">
+                    <mat-error *ngIf="this.loginForm.controls.email.errors.required">Please enter the email!</mat-error>
+                    <mat-error *ngIf="this.loginForm.controls.email.errors.email">Please enter the correct email</mat-error>
+                </div>
+                <mat-form-field class="form-content">
+                    <input matInput type="password" formControlName="password">
+                    <mat-placeholder class="placeholder">Password</mat-placeholder>
+                </mat-form-field>
+                <div *ngIf="submitted && this.loginForm.controls.password.errors" class="error-msg">
+                    <mat-error *ngIf="this.loginForm.controls.password.errors.required">Please enter the password!</mat-error>
+                </div>
+                    <button mat-flat-button type="submit">Let's Go</button>
+            </form>
+        </div>
+    </div>

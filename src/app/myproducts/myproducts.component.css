@@ -1,0 +1,131 @@
+.myproducts {
+    background-color: #dcf0e3;
+    padding-top: 10px;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    padding: 25px;
+    grid-gap: 25px;
+    min-height: 18cm;
+    position: relative;
+    z-index: 2;
+}
+.grid-list{
+    border-left: 4px solid purple;
+    /*border-top: 4px solid purple;*/
+    border-radius: 0 8px 8px 0;
+    min-width: 0;
+    background-color: white;
+    height: auto;
+    max-height: 12cm;
+    box-shadow: 1px 1px 5px gray;
+}
+i {
+    position: relative;
+    font-size: 8cm;
+    padding: 20% 0;
+    color: black;
+    text-decoration: none;
+}
+.upload-product {
+    margin: 2.5cm 0;
+    outline: none;
+}
+.product-cat {
+    margin: 0;
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+}
+img {
+    margin: 0;
+    width: 100%;
+    height: 6cm;
+    object-fit: scale-down;
+    padding: 5px 0;
+    background-color: white;
+}
+.product-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0;
+    font-weight: normal;
+    max-height: 25px;
+    font-size: 21px;
+    padding: 10px;
+}
+.product-info {
+    margin: 0;
+    padding: 12px;
+    font-size: 18px;
+}
+.product-category {
+    width: 100%;
+    display: inline-block;
+}
+.product-price {
+    width: 100%;
+    display: inline-block;
+}
+.card-buttons {
+    display: inline-block;
+    width: 100%;
+    padding:0 0 10px 0;
+}
+.edit-button,.delete-button {
+    width: 50%;
+    display: inline-block;
+}
+.pagination {
+    background-color: #9cb46a;
+    /*background-color: #cfcac1;*/
+    width: 100%;
+    height: 2cm;
+    border-width: 0 0 0 0;
+    border-style: solid;
+    border-color: black;
+    position: relative;
+    z-index: 3;
+}
+.pagination-button {
+    display: inline;
+}
+.pagination-button[disabled], .pagination-button:disabled {
+    background-color: #b9a98b;
+    color: black;
+}
+.paginationin {
+    width: 10cm;
+    margin: auto;
+    padding-top: 18px;
+}
+.current-page {
+    background-color: white;
+    margin:0 10px;
+    padding: 6px 15px;
+    border: 2px solid black;
+}
+button {
+    border: 2px solid black;
+    color: black;
+    font-family: Noto Serif;
+    font-size: 18px;
+    width: 3.5cm;
+    margin: auto;
+    display: block;
+}
+@media(max-width:1600px){
+    .grid-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    button {
+        width: 3cm;
+    }
+}
+@media(max-width:1400px){
+    .grid-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

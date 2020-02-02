@@ -1,0 +1,25 @@
+.navigation {
+    background-color: blueviolet;
+    font-size: 25px;
+    box-shadow: 0px 1px 3px 1px #ccc;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+a {
+    padding: 18px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    outline: none;
+    transition: background-color .8s;
+}
+a:hover:not(:nth-child(1)) {
+    background-color: purple;
+}
+.home {
+    background-color: olivedrab;
+}
+.active-link {
+    background-color: purple;
+}

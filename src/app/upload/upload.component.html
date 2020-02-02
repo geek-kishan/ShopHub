@@ -1,0 +1,37 @@
+<app-navigation></app-navigation>
+<div class="product-info-form-container">
+    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+        <h1>Add Product</h1>
+        <mat-form-field class="form-content">
+            <input type="text" matInput formControlName="productName">
+            <mat-placeholder>Enter product name</mat-placeholder>
+        </mat-form-field>
+        <div *ngIf="submitted && this.uploadForm.controls.productName.errors">
+            <mat-error *ngIf="this.uploadForm.controls.productName.errors.required">Please enter the Product name!</mat-error>
+        </div>
+        <mat-form-field class="form-content">
+            <mat-label>Select category</mat-label>
+            <mat-select formControlName="category">
+                <mat-option [value]="category" *ngFor="let category of categories">{{category}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <div *ngIf="submitted && this.uploadForm.controls.category.errors">
+            <mat-error *ngIf="this.uploadForm.controls.category.errors.required">Please select the catetory!</mat-error>
+        </div>
+        <mat-form-field class="form-content">
+            <input matInput type="text" formControlName="price">
+            <mat-placeholder>Enter price</mat-placeholder>
+        </mat-form-field>
+        <div *ngIf="submitted && this.uploadForm.controls.price.errors">
+            <mat-error *ngIf="this.uploadForm.controls.price.errors.required">Please enter the product price!</mat-error>
+        </div>
+        <label for="file-upload" class="custom-file-upload">
+            Product image<span *ngIf="isImageSelected" style="color: red;"> Selected!</span>
+        </label>
+            <input id="file-upload" (change)="imagePicked($event)" type="file"/>
+            <div *ngIf="submitted && this.uploadForm.controls.image.errors">
+                <mat-error *ngIf="this.uploadForm.controls.image.errors.required">Please select the image</mat-error>
+            </div>    
+        <button mat-flat-button class="signup-button" type="submit">Add</button>
+    </form>
+</div>

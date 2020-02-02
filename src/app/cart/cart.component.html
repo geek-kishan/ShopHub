@@ -1,0 +1,36 @@
+<app-navigation></app-navigation>
+<div class="cart">
+    <div class="cart-headings">
+        <div class="product-image cart-item">Product Image</div>
+        <div class="product-name cart-item">Product Name</div>
+        <div class="product-price cart-item">Price</div>
+        <div class="product-quantity cart-item">Quantity</div>
+        <div class="product-total cart-item">Total Price</div>
+    </div>
+    <div class="cart-items cart-item-contents" *ngFor="let cartItem of cart">
+        <div class="cart-item">
+            <img  class="cart-image" [src]="cartItem.productImagePath" [alt]="cartItem.productName">
+        </div>
+        <div class="product-name cart-item">{{cartItem.productName}}</div>
+        <div class="product-price cart-item">{{cartItem.price}}</div>
+        <div class="product-quantity cart-item">
+            <button mat-flat-button  class="card-quantity-btn"
+            (click)="decQuantity(cartItem._id)"
+            [disabled]="cartItem.quantity == 1">-</button>
+            <div class="product-quantity-container">{{cartItem.quantity}}</div>
+            <button mat-flat-button  class="card-quantity-btn" 
+            (click)="incQuantity(cartItem._id)"
+            [disabled]="cartItem.quantity == 10">+</button>
+        </div>
+        <div class="product-total cart-item">
+            {{cartItem.totalPrice}}
+        </div>
+        <div class="remove-item">
+            <p><a routerLink="/cart" (click)="removeProduct(cartItem)">Remove</a></p>
+        </div>
+    </div>
+    <div class="total-bill-container cart-items">
+        <div class="total-bill-heading">Total Bill</div>
+        <div class="total-bill">{{totalBill}}</div>
+    </div>
+</div>

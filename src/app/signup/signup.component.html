@@ -1,0 +1,58 @@
+<app-site-heading></app-site-heading>
+<app-navigation></app-navigation>
+<div class="signup-form-container">
+    <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <h1>Signup</h1>
+        <p *ngIf="userAlreadyExists">User already exists with this Email!</p>
+        <mat-form-field class="form-content">
+            <input matInput type="text" formControlName="name">
+            <mat-placeholder class="placeholder">Enter your name</mat-placeholder>
+        </mat-form-field>
+            <div *ngIf="submitted && this.signupForm.controls.name.errors" class="error-msg">
+                <mat-error *ngIf="this.signupForm.controls.name.errors.required">Name is must required!</mat-error>
+            </div>
+        <mat-form-field class="form-content">
+                <input matInput type="text" formControlName="email">
+                <mat-placeholder class="placeholder">Enter your Email</mat-placeholder>
+        </mat-form-field>
+            <div *ngIf="submitted && this.signupForm.controls.email.errors" class="error-msg">
+                <mat-error *ngIf="this.signupForm.controls.email.errors.required">Email is must required!</mat-error>
+                <mat-error *ngIf="this.signupForm.controls.email.errors.email">Please enter the correct email</mat-error>
+            </div>
+        <mat-form-field class="form-content">
+            <mat-placeholder class="placeholder">Enter your contact number</mat-placeholder>
+                <input matInput type="text" formControlName="contact">
+        </mat-form-field>
+            <div *ngIf="submitted && this.signupForm.controls.contact.errors" class="error-msg">
+                <mat-error *ngIf="this.signupForm.controls.contact.errors.required">Contact number is must required!</mat-error>
+                <mat-error *ngIf="this.signupForm.controls.contact.errors.invalidNumber">Only numbers allowed!</mat-error>
+                <mat-error *ngIf="this.signupForm.controls.contact.errors.maxlength">Maximum 10 digit allowed!</mat-error>
+                <mat-error *ngIf="this.signupForm.controls.contact.errors.minlength">Minimum 10 digit</mat-error>
+            </div>
+        <mat-form-field class="form-content">
+                <input matInput type="text" formControlName="company">
+                <mat-placeholder class="placeholder">Enter your company name</mat-placeholder>
+        </mat-form-field>
+            <div *ngIf="submitted && this.signupForm.controls.company.errors" class="error-msg">
+                <mat-error *ngIf="this.signupForm.controls.company.errors.required">Company name is required for future selling options</mat-error>
+            </div>
+        <mat-form-field class="form-content">
+            <input matInput type="password" formControlName="password">
+            <mat-placeholder class="placeholder">Enter strong password</mat-placeholder>
+        </mat-form-field>
+        <div *ngIf="submitted && this.signupForm.controls.password.errors" class="error-msg">
+            <mat-error *ngIf="this.signupForm.controls.password.errors.required">Please enter the password!</mat-error>
+            <mat-error *ngIf="this.signupForm.controls.password.errors.minlength">Password must be  at lease 8 char long!</mat-error>
+            <mat-error *ngIf="this.signupForm.controls.password.errors.maxlength">Max length is only 16 char allowed!</mat-error>
+        </div>
+        <mat-form-field class="form-content">
+            <input matInput type="password" formControlName="confirmPassword">
+            <mat-placeholder class="placeholder">Confirm password</mat-placeholder>
+        </mat-form-field>
+        <div *ngIf="submitted && this.signupForm.controls.confirmPassword.errors" class="error-msg">    
+            <mat-error *ngIf="this.signupForm.controls.confirmPassword.errors.required">Please confirm the password!</mat-error>
+            <mat-error *ngIf="this.signupForm.controls.confirmPassword.errors.mustMatch">Password is not matching!</mat-error>
+        </div>
+        <button mat-flat-button type="submit">Let's Go</button>
+    </form>
+</div>

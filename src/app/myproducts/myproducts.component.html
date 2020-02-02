@@ -1,0 +1,39 @@
+<app-navigation></app-navigation>
+<div class="myproducts">
+    <div class="grid-container">
+        <div class="grid-list" *ngFor="let product of responseData">
+            <p class="product-cat">{{product.category}}</p>
+            <img [src]="product.productImagePath" [alt]="product.productName">
+            <h2 class="product-name" #productName >{{product.productName}}</h2>
+            <p class="product-info">
+                <span class="product-price">Price: {{product.price | currency:'INR'}}</span>
+                <span class="product-category">Company: {{product.company}}</span>
+            </p>
+            <div class="card-buttons">
+                <div class="edit-button">
+                    <button mat-flat-button>Edit</button>
+                </div>
+                <div class="delete-button">
+                    <button mat-flat-button (click)="deleteProduct(productName.textContent)">Delete</button>
+                </div>
+            </div>  
+        </div>
+        <div class="grid-list" style="text-align: center;">
+            <a routerLink="upload">
+                <img class="upload-product" src="assets/images/add-product.png" alt="add-product">
+                <!--<i class="fa fa-plus" aria-hidden="false"></i>-->
+            </a>
+        </div>
+    </div>
+</div>
+<div class="pagination">
+    <div class="paginationin">
+        <button mat-flat-button class="pagination-button" 
+            [disabled]="currentPage == 1" 
+            (click)="previous()">Previous</button>
+                <span class="current-page">{{currentPage}} of {{totalPage}}</span>
+        <button mat-flat-button class="pagination-button"
+            [disabled]="currentPage==totalPage"
+            (click)="next()">Next</button>
+    </div>
+</div>

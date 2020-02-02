@@ -1,0 +1,52 @@
+.profile-container{
+    margin: 5cm 0;
+    min-height: 8cm;
+}
+table{
+    border-radius: 0 8px 8px 0;
+    margin: auto;
+    width: 30%;
+    box-shadow: 1px 1px 3px gray;
+}
+table tr:nth-child(odd  ){
+    background-color: #cae0bc;
+}
+/*table td:nth-child(even) {
+    border-left: 3px dotted black;
+}*/
+tr:not(:first-child) {
+    border-left: 4px solid rebeccapurple;
+}
+table, td, tr, th {
+    border-collapse: collapse;
+    font-size: 21px;
+    padding: 15px;
+    font-weight: normal;
+}
+td:nth-child(odd){
+    font-size: 21px;
+}
+th{
+    border-left: 4px solid rebeccapurple;
+    color: white;
+    font-size: 30px;
+    background-color: blueviolet;
+    border-radius: 0 8px 0 0;
+}
+.info {
+    color: #80007a;
+}
+.name::first-letter{
+    text-transform: capitalize;
+}
+.delete-button {
+    font-family: Noto Serif;
+    font-size: 23px;
+    width: 100%;
+    height: 100%;
+}
+@media(max-width:1500px) {
+    table {
+        width: 35%;
+    }
+}

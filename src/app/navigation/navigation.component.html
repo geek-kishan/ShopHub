@@ -1,0 +1,9 @@
+<div class="navigation">
+    <a class="home" routerLink="/home">A-Mart</a>
+    <a routerLink="/cart" routerLinkActive="active-link">Cart</a>
+    <a routerLink="/profile" routerLinkActive="active-link">Profile</a>
+    <a routerLink="/myproducts" routerLinkActive="active-link">My Products</a>
+    <a routerLink="/login" routerLinkActive="active-link" *ngIf="!auth.isLoggedin()">Login</a>
+    <a routerLink="/logout" routerLinkActive="active-link" *ngIf="auth.isLoggedin()" (click)="auth.logout()">Logout</a>
+    <a routerLink="/signup" routerLinkActive="active-link" *ngIf="!auth.isLoggedin()">Signup</a>
+</div>

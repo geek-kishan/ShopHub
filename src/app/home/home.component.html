@@ -1,0 +1,75 @@
+<app-site-heading></app-site-heading>
+<app-navigation></app-navigation>
+<div class="home">
+<div class="search-form-container">
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+        <span>What do you want:</span>
+        <mat-form-field class="search-input">
+            <input matInput type="text" formControlName="query">
+        </mat-form-field>
+        <button mat-flat-button type="submit" class="search-button">Find</button>
+    </form>
+</div>
+<div class="main-home">
+    <div class="sidebar">
+        <div class="product-catagories">
+            <h2>Shop by category :</h2>
+            <ul>
+                <li *ngFor="let category of productCategories">
+                    <a routerLink="/home" (click)="findAllByCat(category)" 
+                    [class.active-link]="category == currentSearchValue">
+                        {{category}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sellers-list">
+            <h2>Shop by seller :</h2>
+            <ul>
+                <li *ngFor="let seller of sellersList">
+                  <a (click)="findAllByCompany(seller.company)" routerLink="/home"
+                  [class.active-link]="seller.company == currentSearchValue">{{seller.company}}</a>  
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="products-list">
+            <h2 *ngIf="notShowingRandomProducts">
+                {{searchingIn}} : {{currentSearchValue}} 
+            </h2>
+            <h2 *ngIf="!notShowingRandomProducts">
+                Products for you
+                <button mat-flat-button (click)="randomProduct()"
+                *ngIf="!notShowingRandomProducts">Refresh</button>
+            </h2>
+        </div>
+            <div class="grid-container">
+                <div class="products-card" *ngFor="let product of explore">
+                    <img class="product-image" [src]="product.productImagePath" [alt]="product.productName">
+                    <h2 class="product-name" #productName>{{product.productName}}</h2>
+                    <p class="product-info">
+                        <span class="product-price">{{product.price | currency:'INR'}}</span>
+                        <span>{{product.category}}</span>
+                        <span class="product-company">{{product.company}}</span>
+                    </p>
+                    <div class="product-card-control">
+                        <div class="buy-now-button">
+                            <button mat-flat-button (click)="addAndBuy(product)">Buy</button>
+                        </div>
+                        <div class="add-to-cart-button">
+                            <button mat-flat-button (click)="addToCart(product)">Cart+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pagination" *ngIf="notShowingRandomProducts">
+        <div class="pagination-in">
+            <button mat-flat-button (click)="previous()" [disabled]="currentPage == 1">Previous</button>
+            <span>{{currentPage}} Of {{totalPages}}</span>
+            <button mat-flat-button (click)="next()" [disabled]="currentPage == totalPages">Next</button>
+        </div>
+    </div>
+</div>
